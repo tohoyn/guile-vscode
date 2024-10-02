@@ -1,20 +1,113 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Guile",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#types"
+    }
+  ],
 	"repository": {
+    "comment": {
+      "begin": ";",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.guile"
+        }
+      },
+      "end": "$",
+      "name": "comment.line.semicolon.guile"
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "(#t|#f)",
+          "name": "constant.language.boolean.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())([+-](?:inf|-inf|nan).0)(?=(\\s|\\)))",
+          "name": "constant.numeric.symbol.guile"
+        },
+        {
+          "match": "([-+]?(?:(?:3[0-6])|(?:[12]\\d)|[2-9])[rR][0-9A-Za-z]+N?)",
+          "name": "constant.numeric.arbitrary-radix.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(#[xX][0-9a-fA-F]+N?)(?=(\\s|\\)))",
+          "name": "constant.numeric.hexadecimal.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(#[oO][0-7]+N?)(?=(\\s|\\)))",
+          "name": "constant.numeric.octal.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())([-+]?[0-9]+(?:(\\.|(?=[eEM]))[0-9]*([eE][-+]?[0-9]+)?)M?)(?=(\\s|\\)))",
+          "name": "constant.numeric.double.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())([-+]?\\d+N?)(?=(\\s|\\)))",
+          "name": "constant.numeric.long.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(#:[^\\s\\)]*)(?=(\\s|\\)))",
+          "name": "constant.language.keyword.guile"
+        }
+      ]
+    },
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.guile",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+      "patterns": [
+        {
+          "match": "(?<=(\\s|\\())(define|define-class|define-method|define-module)(?=(\\s|\\)))",
+          "name": "keyword.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(@|@@|use-modules|library|import|export)(?=(\\s|\\)))",
+          "name": "keyword.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(define-syntax|syntax-rules|syntax-case|syntax|with-syntax|let-syntax|letrec-syntax)(?=(\\s|\\)))",
+          "name": "keyword.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(lambda)(?=(\\s|\\)))",
+          "name": "keyword.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(begin|if|cond|do|case|until|make|set!|quote|else|=>)(?=(\\s|\\)))",
+          "name": "storage.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(let|let\\*)(?=(\\s|\\)))",
+          "name": "storage.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(letrec|letrec\\*)(?=(\\s|\\)))",
+          "name": "storage.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(slot-ref|slot-set!|class-of|apply|guard|raise)(?=(\\s|\\)))",
+          "name": "storage.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(assert|receive|fluid-let|next-method)(?=(\\s|\\)))",
+          "name": "storage.control.guile"
+        },
+        {
+          "match": "(?<=(\\s|\\())(values|call-with-values)(?=(\\s|\\)))",
+          "name": "storage.control.guile"
+        }
+      ]
 		},
 		"strings": {
 			"name": "string.quoted.double.guile",
@@ -26,7 +119,15 @@
 					"match": "\\\\."
 				}
 			]
-		}
+		},
+    "types": {
+      "patterns": [
+        {
+          "match": "(?<=(\\s|\\())(<[^>]*>)(?=(\\s|\\)))",
+          "name": "entity.name.type.guile"
+        }
+      ]
+    }
 	},
 	"scopeName": "source.guile"
 }
