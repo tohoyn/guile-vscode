@@ -1,0 +1,5 @@
+
+Copyright (C) 2024 Tommi Höynälänmaa
+
+Distributed under GNU Lesser General Public License version 3,
+see file LGPL-3.
