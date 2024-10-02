@@ -1,0 +1,25 @@
+{
+  "name": "guile-vscode",
+  "displayName": "Guile Language",
+  "description": "Guile syntax highlighting and editing",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "guile",
+      "aliases": ["Guile", "guile"],
+      "extensions": [".scm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "guile",
+      "scopeName": "source.guile",
+      "path": "./syntaxes/guile.tmLanguage.json"
+    }]
+  }
+}
