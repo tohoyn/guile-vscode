@@ -2,28 +2,38 @@
   "name": "guile-vscode",
   "displayName": "Guile Language",
   "description": "Guile syntax highlighting and editing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tohoyn/guile-vscode.git"    
-},
-"engines": {
+    "url": "https://github.com/tohoyn/guile-vscode.git"
+  },
+  "publisher": "tohoyn2",
+  "engines": {
     "vscode": "^1.93.0"
   },
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "guile",
-      "aliases": ["Guile", "guile"],
-      "extensions": [".scm"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "guile",
-      "scopeName": "source.guile",
-      "path": "./syntaxes/guile.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "guile",
+        "aliases": [
+          "Guile",
+          "guile"
+        ],
+        "extensions": [
+          ".scm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "guile",
+        "scopeName": "source.guile",
+        "path": "./syntaxes/guile.tmLanguage.json"
+      }
+    ]
   }
 }
