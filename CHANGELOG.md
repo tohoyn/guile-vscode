@@ -4,6 +4,13 @@ All notable changes to the "guile-vscode" extension will be documented in this f
 
 ## [Unreleased]
 
+## [1.0.2] - 2025-11-23
+
+### Changes
+
+- Fixed matching and highlighting bugs caused by bracket character constants.
+- Improved parsing character constants.
+
 ## [1.0.1] - 2024-10-03
 
 ### Added

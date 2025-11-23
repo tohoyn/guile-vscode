@@ -1,6 +1,6 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Guile",
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Guile",
   "patterns": [
     {
       "include": "#comment"
@@ -15,10 +15,13 @@
       "include": "#constants"
     },
     {
+      "include": "#brackets"
+    },
+    {
       "include": "#types"
     }
   ],
-	"repository": {
+  "repository": {
     "comment": {
       "begin": ";",
       "beginCaptures": {
@@ -34,6 +37,10 @@
         {
           "match": "(#t|#f)",
           "name": "constant.language.boolean.guile"
+        },
+        {
+          "name": "constant.character.scheme",
+          "match": "#\\\\(alarm|backspace|delete|escape|newline|null|return|space|tab|x[0-9a-fA-F]+|.)"
         },
         {
           "match": "(?<=(\\s|\\())([+-](?:inf|-inf|nan).0)(?=(\\s|\\)))",
@@ -65,7 +72,7 @@
         }
       ]
     },
-		"keywords": {
+    "keywords": {
       "patterns": [
         {
           "match": "(?<=(\\s|\\())(define|define-class|define-method|define-module)(?=(\\s|\\)))",
@@ -108,18 +115,30 @@
           "name": "storage.control.guile"
         }
       ]
-		},
-		"strings": {
-			"name": "string.quoted.double.guile",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.guile",
-					"match": "\\\\."
-				}
-			]
-		},
+    },
+    "brackets": {
+      "patterns": [
+        {
+          "match": "\\(",
+          "name": "punctuation.section.parens.begin.scheme"
+        },
+        {
+          "match": "\\)",
+          "name": "punctuation.section.parens.end.scheme"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.guile",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.guile",
+          "match": "\\\\."
+        }
+      ]
+    },
     "types": {
       "patterns": [
         {
@@ -128,6 +147,6 @@
         }
       ]
     }
-	},
-	"scopeName": "source.guile"
+  },
+  "scopeName": "source.guile"
 }
