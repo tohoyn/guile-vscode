@@ -11,6 +11,10 @@ If you don't want the brackets in your source code to be colourized switch off t
 
 ## Release Notes
 
+### 1.0.3
+
+Updated release notes in README.md.
+
 ### 1.0.2
 
 Fixed matching and highlighting bugs caused by bracket character constants.
