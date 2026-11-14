@@ -9,7 +9,13 @@ code. For indentation, install package Paredit or Strict Paredit.
 
 If you don't want the brackets in your source code to be colourized switch off the configuration variable editor.bracketPairColorization.enabled.
 
+If you don't want to use the strict editing mode configure VSCode setting `paredit.defaultKeyMap` to `original` or `none`. 
+
 ## Release Notes
+
+### 1.0.4
+
+Updated README.md.
 
 ### 1.0.3
 
